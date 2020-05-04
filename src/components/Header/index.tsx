@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 import { Nav } from "./styled"
@@ -13,27 +13,38 @@ const Header = () => {
           ...GatsbyImageSharpFluid
         }
       }
-      drawingsBtn: imageSharp(fluid: {originalName: {eq: "drawings-btn.png"}}) {
+      drawingsBtn: imageSharp(fluid: {originalName: {eq: "drawings.png"}}) {
         fluid {
           ...GatsbyImageSharpFluid
         }
       }
-      musicBtn: imageSharp(fluid: {originalName: {eq: "music-btn.png"}}) {
+      musicBtn: imageSharp(fluid: {originalName: {eq: "music.png"}}) {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+      musicBtnUnderlined: imageSharp(fluid: {originalName: {eq: "music-underlined.png"}}) {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+      drawingsBtnUnderlined: imageSharp(fluid: {originalName: {eq: "drawings-underlined.png"}}) {
         fluid {
           ...GatsbyImageSharpFluid
         }
       }
     }
   `)
-  console.log(data)
   return (
     <Nav>
       <div className="logo-wrap">
-        <Img style={{ height: "100%", width: "300px" }} fluid={data.logo.fluid}></Img>
+        <Link to="/">
+          <Img style={{ height: "100%", width: "300px" }} fluid={data.logo.fluid}></Img>
+        </Link>
       </div>
       <div className="btn-wrap">
-        <Btn fluid={data.drawingsBtn.fluid}></Btn>
-        <Btn fluid={data.musicBtn.fluid}></Btn>
+        <Btn regular={data.drawingsBtn.fluid} underlined={data.drawingsBtnUnderlined.fluid} to="/drawings"></Btn>
+        <Btn regular={data.musicBtn.fluid} underlined={data.musicBtnUnderlined.fluid} to="/music"></Btn>
       </div>
     </Nav>
   )

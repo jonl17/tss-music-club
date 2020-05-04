@@ -28,7 +28,16 @@ export const BtnWrap = styled.div`
   height: 100%;
   width: 125px;
   z-index: 2;
+  position: relative;
   &&:hover {
     cursor: pointer;
+  }
+  div {
+    position: absolute !important;
+    height: 100%;
+    width: 100%;
+    transition: opacity .1s;
+    overflow: hidden;
+
   }
 `
