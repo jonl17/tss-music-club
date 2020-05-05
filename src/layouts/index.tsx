@@ -22,7 +22,7 @@ const Layout: React.FC<Props> = ({ children, location }) => {
     <>
       <GlobalStyles></GlobalStyles>
       <SEO pageName={pageName}></SEO>
-      <Header></Header>
+      <Header pathname={location.pathname}></Header>
       {children}
     </>
   )

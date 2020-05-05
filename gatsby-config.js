@@ -25,7 +25,6 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-plugin-layout`,
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-tslint`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {

@@ -1,8 +1,15 @@
 import { FluidObject } from "gatsby-image"
 
+export type PageName = string | undefined
+
 export interface StopMotionContextProps {
   chosenImageId: number;
   setChosenImageId: (id: number) => void
+}
+
+export interface StopMotionComponentProps {
+  stopMotionContext: React.Context<StopMotionContextProps>;
+  images: Image[];
 }
 
 export interface ImageComponentProps {

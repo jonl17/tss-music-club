@@ -1,9 +1,9 @@
-import React, { createContext, useState, ReactChild } from 'react'
+import React, { createContext, useState } from 'react'
 import { StopMotionContextProps } from "~/types"
 
 export const MorphingManContext = createContext({} as StopMotionContextProps)
 
-const Provider: React.FC<ReactChild> = ({ children }) => {
+const MorphingManProvider: React.FC<any> = ({ children }) => {
   const [chosenImageId, setChosenImageId] = useState(1)
   return (
     <MorphingManContext.Provider value={{ chosenImageId, setChosenImageId }}>
@@ -12,4 +12,4 @@ const Provider: React.FC<ReactChild> = ({ children }) => {
   )
 }
 
-export default Provider
+export default MorphingManProvider

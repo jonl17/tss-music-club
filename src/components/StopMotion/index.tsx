@@ -1,29 +1,26 @@
 import React from 'react'
-import Stika from "~/components/Stika"
-import { Image, StopMotionContextProps } from "~/types"
+import Sensor from "~/components/Sensor"
 import { Grid } from "./styled"
-import Item from "~/components/MorphingMan/Item"
+import ImageComponent from "~/components/ImageComponent"
+import { StopMotionComponentProps } from '~/types'
 
-interface Props {
-  stopMotionContext: React.Context<StopMotionContextProps>;
-  images: Image[];
-}
-
-// this components creates a stopmotion thingy, you need to feed it images and a component
-const StopMotion: React.FC<Props> = ({ stopMotionContext, images }) => {
+// this components creates a stopmotion thingy, you need to feed it images and a context
+const StopMotion: React.FC<StopMotionComponentProps> = ({ stopMotionContext, images }) => {
   return (
+
     <React.Fragment>
 
       {/* this is the interaction sensor that controls the stopmotion */}
-      <Stika count={images.length}></Stika>
+      <Sensor stopMotionContext={stopMotionContext} count={images.length}></Sensor>
 
       <Grid>
         {images.map((image, index) => (
-          <Item key={index} identifier={index + 1} fluid={image.childImageSharp.fluid} stopMotionContext={stopMotionContext}></Item>
+          <ImageComponent key={index} identifier={index + 1} fluid={image.childImageSharp.fluid} stopMotionContext={stopMotionContext}></ImageComponent>
         ))}
       </Grid>
 
     </React.Fragment>
+
   )
 }
 

@@ -5,14 +5,19 @@ import { StopMotionFullQuery } from "~/types"
 
 import StopMotion from "~/components/StopMotion"
 import PageWrap from "~/components/FrontpageWrap"
-import { MorphingManContext } from "~/context/MorphingMan"
+
+import MorphingManProvider, { MorphingManContext } from "~/context/StopMotion/MorphingMan"
 
 const index: React.FC<StopMotionFullQuery> = ({
   data: { markdownRemark: { frontmatter } }
 }) => {
   return (
     <PageWrap>
-      <StopMotion images={frontmatter.images} stopMotionContext={MorphingManContext}></StopMotion>
+
+      <MorphingManProvider>
+        <StopMotion images={frontmatter.images} stopMotionContext={MorphingManContext}></StopMotion>
+      </MorphingManProvider>
+
     </PageWrap >
   )
 }

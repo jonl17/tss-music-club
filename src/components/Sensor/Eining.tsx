@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { EiningContainer } from "./styled"
-import { MorphingManContext } from '~/context/MorphingMan'
+import { StopMotionContextProps } from '~/types'
 
 interface Props {
   identifier: number;
+  stopMotionContext: React.Context<StopMotionContextProps>;
 }
 
-const Eining: React.FC<Props> = ({ identifier }) => {
+const Eining: React.FC<Props> = ({ identifier, stopMotionContext }) => {
   const [active, setActive] = useState(false)
-  const { setChosenImageId } = useContext(MorphingManContext)
+  const { setChosenImageId } = useContext(stopMotionContext)
   useEffect(() => {
     if (active) {
       setChosenImageId(identifier)

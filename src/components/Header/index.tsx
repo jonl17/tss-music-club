@@ -5,7 +5,11 @@ import Img from "gatsby-image"
 import { Nav } from "./styled"
 import Btn from "./btn"
 
-const Header = () => {
+type Props = {
+  pathname: string;
+}
+
+const Header: React.FC<Props> = ({ pathname }) => {
   const data = useStaticQuery(graphql`
     {
       logo: imageSharp(fluid: {originalName: {eq: "logo.png"}}) {
@@ -43,8 +47,8 @@ const Header = () => {
         </Link>
       </div>
       <div className="btn-wrap">
-        <Btn regular={data.drawingsBtn.fluid} underlined={data.drawingsBtnUnderlined.fluid} to="/drawings"></Btn>
-        <Btn regular={data.musicBtn.fluid} underlined={data.musicBtnUnderlined.fluid} to="/music"></Btn>
+        <Btn regular={data.drawingsBtn.fluid} underlined={data.drawingsBtnUnderlined.fluid} to="/drawings" currentPathname={pathname}></Btn>
+        <Btn regular={data.musicBtn.fluid} underlined={data.musicBtnUnderlined.fluid} to="/music" currentPathname={pathname}></Btn>
       </div>
     </Nav>
   )
