@@ -1,16 +1,10 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { FluidObject } from 'gatsby-image'
 import { GridItem } from "./styled"
 import Img from "gatsby-image"
-import { MorphingManContext } from '~/context/MorphingMan'
+import { ImageComponentProps } from '~/types'
 
-interface Props {
-  fluid: FluidObject;
-  identifier: number;
-}
-
-const Item: React.FC<Props> = ({ fluid, identifier }) => {
-  const { chosenImageId } = useContext(MorphingManContext)
+const Item: React.FC<ImageComponentProps> = ({ fluid, identifier, stopMotionContext }) => {
+  const { chosenImageId } = useContext(stopMotionContext)
   const [active, setActive] = useState(false)
 
   useEffect(() => {

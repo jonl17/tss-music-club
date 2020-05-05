@@ -1,19 +1,19 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import { MorphingManFullQueryProps } from "~/types"
-import MorphingMan from "~/components/MorphingMan"
-import Stika from "~/components/Stika"
-import PageWrap from "~/components/FrontpageWrap"
+import { StopMotionFullQuery } from "~/types"
 
-const index: React.FC<MorphingManFullQueryProps> = ({
+import StopMotion from "~/components/StopMotion"
+import PageWrap from "~/components/FrontpageWrap"
+import { MorphingManContext } from "~/context/MorphingMan"
+
+const index: React.FC<StopMotionFullQuery> = ({
   data: { markdownRemark: { frontmatter } }
 }) => {
   return (
     <PageWrap>
-      <Stika count={frontmatter.images.length}></Stika>
-      <MorphingMan frontmatter={frontmatter}></MorphingMan>
-    </PageWrap>
+      <StopMotion images={frontmatter.images} stopMotionContext={MorphingManContext}></StopMotion>
+    </PageWrap >
   )
 }
 

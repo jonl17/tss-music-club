@@ -1,18 +1,31 @@
 import { FluidObject } from "gatsby-image"
 
-export interface MorphingManFrontmatter {
-  frontmatter: {
-    title: string;
-    images: {
-      childImageSharp: {
-        fluid: FluidObject;
-      }
-    }[]
+export interface StopMotionContextProps {
+  chosenImageId: number;
+  setChosenImageId: (id: number) => void
+}
+
+export interface ImageComponentProps {
+  fluid: FluidObject;
+  identifier: number;
+  stopMotionContext: React.Context<StopMotionContextProps>
+}
+
+export interface Image {
+  childImageSharp: {
+    fluid: FluidObject;
   }
 }
 
-export interface MorphingManFullQueryProps {
+export interface StopMotionFrontmatter {
+  frontmatter: {
+    title: string;
+    images: Image[]
+  }
+}
+
+export interface StopMotionFullQuery {
   data: {
-    markdownRemark: MorphingManFrontmatter
+    markdownRemark: StopMotionFrontmatter
   }
 }

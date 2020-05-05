@@ -1,11 +1,7 @@
 import React, { createContext, useState, ReactChild } from 'react'
+import { StopMotionContextProps } from "~/types"
 
-interface ContextProps {
-  chosenImageId: number;
-  setChosenImageId: (id: number) => void
-}
-
-export const MorphingManContext = createContext({} as ContextProps)
+export const MorphingManContext = createContext({} as StopMotionContextProps)
 
 const Provider: React.FC<ReactChild> = ({ children }) => {
   const [chosenImageId, setChosenImageId] = useState(1)
