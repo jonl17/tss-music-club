@@ -5,28 +5,26 @@ import { StopMotionFullQuery } from "~/types"
 
 import StopMotion from "~/components/StopMotion"
 import PageWrap from "~/components/FrontpageWrap"
-import FeaturedImageBanner from "~/components/FeaturedImageBanner"
 
-import GymnistProvider, { GymnistContext } from "~/context/StopMotion/Gymnist"
+import MorphingManProvider, { MorphingManContext } from "~/context/StopMotion/MorphingMan"
 
-const index: React.FC<StopMotionFullQuery> = ({
+const InteractiveAnimations: React.FC<StopMotionFullQuery> = ({
   data: { markdownRemark: { frontmatter } }
 }) => {
   return (
     <PageWrap>
 
-      <GymnistProvider>
-        <StopMotion images={frontmatter.images} stopMotionContext={GymnistContext} sensorType="xy"></StopMotion>
-      </GymnistProvider>
+      <MorphingManProvider>
+        <StopMotion images={frontmatter.images} stopMotionContext={MorphingManContext} sensorType="x"></StopMotion>
+      </MorphingManProvider>
 
-      <FeaturedImageBanner></FeaturedImageBanner>
     </PageWrap >
   )
 }
 
 export const query = graphql`
 {
-  markdownRemark (fileAbsolutePath: {regex: "/gymnist/"}) {
+  markdownRemark (fileAbsolutePath: {regex: "/morphing-man/"}) {
     frontmatter {
       title
       images {
@@ -41,4 +39,4 @@ export const query = graphql`
 }
 `
 
-export default index
+export default InteractiveAnimations

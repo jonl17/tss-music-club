@@ -4,11 +4,12 @@ export const Nav = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  height: 100px;
+  height: auto;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: space-evenly;
+  align-items: center;
   .logo-wrap {
     height: 125px;
     width: 100%;
@@ -22,22 +23,19 @@ export const Nav = styled.div`
     padding: 10px;
     display: flex;
     justify-content: space-evenly;
-  }
-`
-export const BtnWrap = styled.div`
-  height: 100%;
-  width: 125px;
-  z-index: 2;
-  position: relative;
-  &&:hover {
-    cursor: pointer;
-  }
-  div {
-    position: absolute !important;
-    height: 100%;
-    width: 100%;
-    transition: opacity .1s;
-    overflow: hidden;
-
+    p {
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+        a:hover {
+          color: gray;
+        }
+      }
+    }
   }
 `
