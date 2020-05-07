@@ -22,7 +22,7 @@ const Header: React.FC<Props> = ({ pathname }) => {
     <Nav>
       <div className="logo-wrap">
         <Link to="/">
-          <Img imgStyle={{ zIndex: "2" }} style={{ height: "100%", width: "300px" }} fluid={data.logo.fluid}></Img>
+          <Img imgStyle={{ zIndex: "2" }} style={{ height: "100%", width: "250px" }} fluid={data.logo.fluid}></Img>
         </Link>
       </div>
       <div className="btn-wrap">

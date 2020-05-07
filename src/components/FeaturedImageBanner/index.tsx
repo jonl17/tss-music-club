@@ -5,7 +5,7 @@ import { Container } from "./styled"
 const FeaturedImageBanner = () => {
   return (
     <Container>
-      <p>The Gymnist (2020)</p>
+      <p>Gymnast (2020)</p>
     </Container>
   )
 }

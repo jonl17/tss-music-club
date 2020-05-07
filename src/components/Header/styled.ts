@@ -8,21 +8,21 @@ export const Nav = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   .logo-wrap {
-    height: 125px;
     width: 100%;
     box-sizing: border-box;
-    padding: 10px;
+    padding: var(--smallMargin) 0 0 var(--smallMargin);
   }
   .btn-wrap {
-    height: 100px;
+    height: 100%;
     width: 100%;
+    max-width: 45rem;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 0 var(--largeMargin) 0 var(--smallMargin);
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     p {
       z-index: 2;
       display: flex;

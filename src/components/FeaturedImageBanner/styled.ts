@@ -4,8 +4,10 @@ export const Container = styled.div`
   position: fixed;
   bottom: 0;
   left: 0;
+  width: 100%;
+  text-align: center;
   box-sizing: border-box;
-  padding: 1em 0.5em;
+  padding: var(--smallMargin);
   pointer-events: none;
   p {
     margin: 0;
