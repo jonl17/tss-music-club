@@ -6,7 +6,7 @@ import { StopMotionFullQuery } from "~/types"
 import StopMotion from "~/components/StopMotion"
 import PageWrap from "~/components/FrontpageWrap"
 
-import MorphingManProvider, { MorphingManContext } from "~/context/StopMotion/MorphingMan"
+import GymnistProvider, { GymnistContext } from "~/context/StopMotion/Gymnist"
 
 const index: React.FC<StopMotionFullQuery> = ({
   data: { markdownRemark: { frontmatter } }
@@ -14,9 +14,9 @@ const index: React.FC<StopMotionFullQuery> = ({
   return (
     <PageWrap>
 
-      <MorphingManProvider>
-        <StopMotion images={frontmatter.images} stopMotionContext={MorphingManContext}></StopMotion>
-      </MorphingManProvider>
+      <GymnistProvider>
+        <StopMotion images={frontmatter.images} stopMotionContext={GymnistContext} sensorType="xy"></StopMotion>
+      </GymnistProvider>
 
     </PageWrap >
   )
@@ -24,7 +24,7 @@ const index: React.FC<StopMotionFullQuery> = ({
 
 export const query = graphql`
 {
-  markdownRemark (fileAbsolutePath: {regex: "/morphing-man/"}) {
+  markdownRemark (fileAbsolutePath: {regex: "/gymnist/"}) {
     frontmatter {
       title
       images {

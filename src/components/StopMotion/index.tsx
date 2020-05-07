@@ -5,13 +5,13 @@ import ImageComponent from "~/components/ImageComponent"
 import { StopMotionComponentProps } from '~/types'
 
 // this components creates a stopmotion thingy, you need to feed it images and a context
-const StopMotion: React.FC<StopMotionComponentProps> = ({ stopMotionContext, images }) => {
+const StopMotion: React.FC<StopMotionComponentProps> = ({ stopMotionContext, images, sensorType }) => {
   return (
 
     <React.Fragment>
 
       {/* this is the interaction sensor that controls the stopmotion */}
-      <Sensor stopMotionContext={stopMotionContext} count={images.length}></Sensor>
+      <Sensor stopMotionContext={stopMotionContext} count={images.length} type={sensorType}></Sensor>
 
       <Grid>
         {images.map((image, index) => (

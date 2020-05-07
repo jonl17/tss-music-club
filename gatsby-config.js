@@ -20,6 +20,14 @@ module.exports = {
         path: `${__dirname}/static/morphing-man`
       },
     },
+    {
+      resolve:
+        `gatsby-source-filesystem`,
+      options: {
+        name: `gymnist`,
+        path: `${__dirname}/static/gymnist`
+      },
+    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-transformer-remark`,

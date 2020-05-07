@@ -1,12 +1,13 @@
 import React from 'react'
 
-import { Container, Panel } from "./styled"
+import { Container, Xpanel, XYpanel } from "./styled"
 import Eining from "./Eining"
-import { StopMotionContextProps } from '~/types'
+import { StopMotionContextProps, SensorType } from '~/types'
 
 interface Props {
   count: number;
   stopMotionContext: React.Context<StopMotionContextProps>;
+  type: SensorType;
 }
 
 const renderEiningar = (count: number, context: React.Context<StopMotionContextProps>) => {
@@ -17,14 +18,19 @@ const renderEiningar = (count: number, context: React.Context<StopMotionContextP
   return einingarList
 }
 
-const Stika: React.FC<Props> = ({ count, stopMotionContext }) => {
+const Stika: React.FC<Props> = ({ count, stopMotionContext, type }) => {
 
   return (
     <>
       <Container>
-        <Panel>
-          {renderEiningar(count, stopMotionContext)}
-        </Panel>
+        {type === "xy" ?
+          <XYpanel>
+            {renderEiningar(count, stopMotionContext)}
+          </XYpanel> :
+          <Xpanel>
+            {renderEiningar(count, stopMotionContext)}
+          </Xpanel>}
+
       </Container>
     </>
   )

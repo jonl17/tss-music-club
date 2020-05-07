@@ -1,5 +1,7 @@
 import { FluidObject } from "gatsby-image"
 
+export type SensorType = "x" | "xy";
+
 export type PageName = string | undefined
 
 export interface StopMotionContextProps {
@@ -10,6 +12,7 @@ export interface StopMotionContextProps {
 export interface StopMotionComponentProps {
   stopMotionContext: React.Context<StopMotionContextProps>;
   images: Image[];
+  sensorType: SensorType;
 }
 
 export interface ImageComponentProps {

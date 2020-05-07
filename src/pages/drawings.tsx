@@ -1,10 +1,42 @@
-import React from 'react'
+import React from "react"
+import { graphql } from "gatsby"
 
-const Drawings = () => {
+import { StopMotionFullQuery } from "~/types"
+
+import StopMotion from "~/components/StopMotion"
+import PageWrap from "~/components/FrontpageWrap"
+
+import MorphingManProvider, { MorphingManContext } from "~/context/StopMotion/MorphingMan"
+
+const Drawings: React.FC<StopMotionFullQuery> = ({
+  data: { markdownRemark: { frontmatter } }
+}) => {
   return (
-    <div>
-    </div>
+    <PageWrap>
+
+      <MorphingManProvider>
+        <StopMotion images={frontmatter.images} stopMotionContext={MorphingManContext} sensorType="x"></StopMotion>
+      </MorphingManProvider>
+
+    </PageWrap >
   )
 }
+
+export const query = graphql`
+{
+  markdownRemark (fileAbsolutePath: {regex: "/morphing-man/"}) {
+    frontmatter {
+      title
+      images {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+}
+`
 
 export default Drawings
