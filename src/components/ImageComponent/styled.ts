@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 type GridItemProps = {
   opacity: string;
+  padding: string;
 }
 export const Grid = styled.div`
   position: relative;
@@ -12,11 +13,9 @@ export const Grid = styled.div`
 `
 export const GridItem = styled.div`
   position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -15rem;
-  margin-left: -15rem;
-  height: 30rem;
-  width: 30rem;
+  height: 100%;
+  width: 100%;
   opacity: ${(props: GridItemProps) => props.opacity};
+  box-sizing: border-box;
+  padding: 2rem ${(props: GridItemProps) => props.padding};
 `

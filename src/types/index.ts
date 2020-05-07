@@ -1,5 +1,7 @@
 import { FluidObject } from "gatsby-image"
 
+export type ImageSize = "large" | "small";
+
 export type SensorType = "x" | "xy";
 
 export type PageName = string | undefined
@@ -13,12 +15,14 @@ export interface StopMotionComponentProps {
   stopMotionContext: React.Context<StopMotionContextProps>;
   images: Image[];
   sensorType: SensorType;
+  imageSize: ImageSize;
 }
 
 export interface ImageComponentProps {
   fluid: FluidObject;
   identifier: number;
   stopMotionContext: React.Context<StopMotionContextProps>
+  size: ImageSize;
 }
 
 export interface Image {

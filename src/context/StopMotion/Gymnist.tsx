@@ -4,7 +4,7 @@ import { StopMotionContextProps } from "~/types"
 export const GymnistContext = createContext({} as StopMotionContextProps)
 
 const GymnistProvider: React.FC<any> = ({ children }) => {
-  const [chosenImageId, setChosenImageId] = useState(1)
+  const [chosenImageId, setChosenImageId] = useState(13) // á hvaða mynd á að byrja?
   return (
     <GymnistContext.Provider value={{ chosenImageId, setChosenImageId }}>
       {children}

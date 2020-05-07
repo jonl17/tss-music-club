@@ -16,7 +16,7 @@ const index: React.FC<StopMotionFullQuery> = ({
     <PageWrap>
 
       <GymnistProvider>
-        <StopMotion images={frontmatter.images} stopMotionContext={GymnistContext} sensorType="xy"></StopMotion>
+        <StopMotion images={frontmatter.images} stopMotionContext={GymnistContext} sensorType="xy" imageSize="small"></StopMotion>
       </GymnistProvider>
 
       <FeaturedImageBanner></FeaturedImageBanner>

@@ -6,4 +6,16 @@ export const Grid = styled.div`
   height: 100vh;
   width: 100%;
   pointer-events: none;
+  .center-the-images {
+    position: absolute;
+    width: 40em;
+    height: 40em;
+    left: 50%;
+    margin-left: -20em;
+    top: 50%;
+    margin-top: -20em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `

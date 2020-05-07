@@ -15,7 +15,7 @@ const InteractiveAnimations: React.FC<StopMotionFullQuery> = ({
     <PageWrap>
 
       <MorphingManProvider>
-        <StopMotion images={frontmatter.images} stopMotionContext={MorphingManContext} sensorType="x"></StopMotion>
+        <StopMotion images={frontmatter.images} stopMotionContext={MorphingManContext} sensorType="x" imageSize="large"></StopMotion>
       </MorphingManProvider>
 
     </PageWrap >
