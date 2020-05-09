@@ -18,4 +18,7 @@ export const GridItem = styled.div`
   opacity: ${(props: GridItemProps) => props.opacity};
   box-sizing: border-box;
   padding: 2rem ${(props: GridItemProps) => props.padding};
+  @media (max-width: 600px) {
+    padding: 8rem;
+  }
 `

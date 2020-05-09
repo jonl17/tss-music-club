@@ -7,9 +7,20 @@ export const Nav = styled.div`
   height: auto;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  
   justify-content: space-between;
   align-items: center;
+
+  grid-template-columns: 1fr 0.3fr;
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr 0.5fr;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-content: space-around;
+  }
+
   .logo-wrap {
     width: 100%;
     box-sizing: border-box;
@@ -20,22 +31,31 @@ export const Nav = styled.div`
     width: 100%;
     max-width: 45rem;
     box-sizing: border-box;
-    padding: 0 var(--largeMargin) 0 var(--smallMargin);
     display: flex;
     justify-content: space-between;
-    p {
-      z-index: 2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-        a {
-          text-decoration: none;
-          color: inherit;
-        }
-        a:hover {
-          color: gray;
-        }
+
+    padding: 0 var(--largeMargin) 0 var(--smallMargin);
+    @media (max-width: 1200px) {
+      padding: 0 var(--mediumMargin) 0 var(--smallMargin);
+    }
+    @media (max-width: 900px) {
+      padding: 0 var(--smallMargin) 0 var(--smallMargin);
+    }
+    @media (max-width: 600px) {
+      padding: 0 var(--mediumMargin) 0 var(--mediumMargin);
+    }
+    
+      svg {
+        height: 100%;
+        width: 30px;
+        transition: .2s;
+      }
+      svg:hover {
+        transform: scale(1.05);
+      }
+      a {
+        z-index: 2;
       }
     }
-  }
+  
 `

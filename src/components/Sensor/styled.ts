@@ -22,6 +22,9 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 5em 0 5em;
+  @media (max-width: 900px) {
+    padding: 0;
+  }
 `
 export const Xpanel = styled.div`
   ${BasicPanelStyles};

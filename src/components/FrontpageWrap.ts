@@ -6,6 +6,7 @@ const PageWrap = styled.div`
   align-items: center;
   min-height: 100vh;
   width: 100%;
+  overflow: hidden;
 `
 
 export default PageWrap

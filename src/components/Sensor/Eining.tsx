@@ -16,7 +16,7 @@ const Eining: React.FC<Props> = ({ identifier, stopMotionContext }) => {
     }
   }, [active])
   return (
-    <EiningContainer background={active ? "lightgray" : "white"} onMouseLeave={() => setActive(false)} onMouseMove={() => setActive(true)}>
+    <EiningContainer background={active ? "lightgray" : "white"} onMouseLeave={() => setActive(false)} onTouchEnd={() => setActive(false)} onMouseMove={() => setActive(true)} onTouchMove={() => setActive(true)}>
     </EiningContainer>
   )
 }

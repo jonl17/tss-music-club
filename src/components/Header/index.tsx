@@ -3,6 +3,7 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 import { Nav } from "./styled"
+import { Bandcamp, Instagram, Spotify, Youtube } from "@styled-icons/fa-brands"
 
 type Props = {
   pathname: string;
@@ -27,15 +28,18 @@ const Header: React.FC<Props> = ({ pathname }) => {
       </div>
       <div className="btn-wrap">
 
-        <p>
-          <Link activeStyle={{ color: "gray" }} to="/drawings">drawings</Link>
-        </p>
-        <p>
-          <Link activeStyle={{ color: "gray" }} to="/interactive-animations">interactive animations</Link>
-        </p>
-        <p>
-          <Link activeStyle={{ color: "gray" }} to="/music">music</Link>
-        </p>
+        <a target="_blank" href="https://tssforu.bandcamp.com/">
+          <Bandcamp></Bandcamp>
+        </a>
+        <a target="_blank" href="https://www.instagram.com/tss_spaceman/">
+          <Instagram></Instagram>
+        </a>
+        <a target="_blank" href="https://open.spotify.com/artist/75WR8OP1SdDikvZdDqkjse?si=crESKemsRne3bvQvnFL24A">
+          <Spotify></Spotify>
+        </a>
+        <a target="_blank" href="https://www.youtube.com/watch?v=hs-S342IIUU&t=39s">
+          <Youtube></Youtube>
+        </a>
 
       </div>
     </Nav>
