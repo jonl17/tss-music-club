@@ -1,8 +1,8 @@
 import React from 'react'
-import { Container } from './styled'
-import Eining from './Eining'
-import { SensorType } from '@src/types'
 import cn from 'classnames'
+import { useGymnist } from '@src/context/StopMotion/Gymnist'
+
+export type SensorType = 'xy' | 'x'
 
 interface Props {
   count: number
@@ -10,6 +10,7 @@ interface Props {
 }
 
 const Stika = ({ count, type = 'xy' }: Props) => {
+  const { updateChosenImageId } = useGymnist()
   return (
     <>
       <div className='sensor'>
@@ -19,7 +20,7 @@ const Stika = ({ count, type = 'xy' }: Props) => {
           })}
         >
           {Array.from(Array(count)).map((_, i) => (
-            <Eining identifier={i} key={i} />
+            <div onMouseEnter={() => updateChosenImageId(i + 1)} />
           ))}
         </div>
       </div>
