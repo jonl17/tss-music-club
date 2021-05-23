@@ -1,32 +1,28 @@
 import React from 'react'
-
-import { Container, Xpanel, XYpanel } from './styled'
+import { Container } from './styled'
 import Eining from './Eining'
 import { SensorType } from '@src/types'
+import cn from 'classnames'
 
 interface Props {
   count: number
   type: SensorType
 }
 
-const renderEiningar = (count: number) => {
-  let einingarList: JSX.Element[] = []
-  for (let i = 1; i < count + 1; i++) {
-    einingarList.push(<Eining identifier={i} key={i}></Eining>)
-  }
-  return einingarList
-}
-
-const Stika: React.FC<Props> = ({ count, type }) => {
+const Stika = ({ count, type = 'xy' }: Props) => {
   return (
     <>
-      <Container>
-        {type === 'xy' ? (
-          <XYpanel>{renderEiningar(count)}</XYpanel>
-        ) : (
-          <Xpanel>{renderEiningar(count)}</Xpanel>
-        )}
-      </Container>
+      <div className='sensor'>
+        <div
+          className={cn({
+            'sensor__grid--medium': type === 'xy',
+          })}
+        >
+          {Array.from(Array(count)).map((_, i) => (
+            <Eining identifier={i} key={i} />
+          ))}
+        </div>
+      </div>
     </>
   )
 }

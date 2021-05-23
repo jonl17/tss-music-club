@@ -1,0 +1,17 @@
+.sensor {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &__grid {
+    &--medium {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      height: 100%;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+}

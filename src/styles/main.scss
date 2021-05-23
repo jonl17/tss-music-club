@@ -1,3 +1,7 @@
+@import './config/base.scss';
+
+@import './components/sensor.scss';
+
 :root {
   --smallMargin: 10px;
   --mediumMargin: 50px;
@@ -15,4 +19,8 @@ a {
   text-decoration: none;
   color: inherit;
   text-transform: uppercase;
+
+  &:hover {
+    color: black;
+  }
 }

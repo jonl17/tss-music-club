@@ -13,7 +13,7 @@ const StopMotion: React.FC<StopMotionComponentProps> = ({
   return (
     <>
       {/* this is the interaction sensor that controls the stopmotion */}
-      <Sensor count={images.length} type={sensorType}></Sensor>
+      <Sensor count={images.length} type={sensorType} />
 
       <Grid>
         <div className='center-the-images'>
