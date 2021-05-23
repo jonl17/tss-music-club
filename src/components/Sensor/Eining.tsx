@@ -1,24 +1,14 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { EiningContainer } from "./styled"
-import { StopMotionContextProps } from '~/types'
+import { useGymnist } from '@src/context/StopMotion/Gymnist'
+import React from 'react'
 
-interface Props {
-  identifier: number;
-  stopMotionContext: React.Context<StopMotionContextProps>;
+type Props = {
+  identifier: number
 }
 
-const Eining: React.FC<Props> = ({ identifier, stopMotionContext }) => {
-  const [active, setActive] = useState(false)
-  const { setChosenImageId } = useContext(stopMotionContext)
-  useEffect(() => {
-    if (active) {
-      setChosenImageId(identifier)
-    }
-  }, [active])
-  return (
-    <EiningContainer background={active ? "lightgray" : "white"} onMouseLeave={() => setActive(false)} onTouchEnd={() => setActive(false)} onMouseMove={() => setActive(true)} onTouchMove={() => setActive(true)}>
-    </EiningContainer>
-  )
+const Eining = ({ identifier }: Props) => {
+  const { updateChosenImageId } = useGymnist()
+
+  return <div onMouseEnter={() => updateChosenImageId(identifier)} />
 }
 
 export default Eining

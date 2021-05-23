@@ -1,26 +1,23 @@
 import React, { useEffect, useState } from 'react'
 
-import { GlobalStyles } from "~/components/GlobalStyles"
-import Header from "~/components/Header"
-import SEO from "~/components/SEO"
+import Header from '@cmp/Header'
+import SEO from '@cmp/SEO'
 
 type Props = {
-  children: React.ReactChild;
-  location: Location;
+  children: React.ReactChild
+  location: Location
 }
 
 const Layout: React.FC<Props> = ({ children, location }) => {
   const [pageName, setPageName] = useState<string | undefined>(undefined)
   useEffect(() => {
-    if (location.pathname !== "/") {
-      let result = location.pathname.replace("/", "")
+    if (location.pathname !== '/') {
+      let result = location.pathname.replace('/', '')
       setPageName(result.charAt(0).toUpperCase() + result.slice(1))
-    }
-    else setPageName(undefined)
+    } else setPageName(undefined)
   }, [location])
   return (
     <>
-      <GlobalStyles></GlobalStyles>
       <SEO pageName={pageName}></SEO>
       <Header pathname={location.pathname}></Header>
       {children}

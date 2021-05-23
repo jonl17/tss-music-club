@@ -1,31 +1,30 @@
+const path = require('path')
+
 const aliases = {
-  "~": "src"
+  '~': 'src',
 }
 
 module.exports = {
   plugins: [
     {
-      resolve:
-        `gatsby-source-filesystem`,
+      resolve: `gatsby-source-filesystem`,
       options: {
         name: `assets`,
-        path: `${__dirname}/static/assets`
+        path: `${__dirname}/static/assets`,
       },
     },
     {
-      resolve:
-        `gatsby-source-filesystem`,
+      resolve: `gatsby-source-filesystem`,
       options: {
         name: `morphing-man`,
-        path: `${__dirname}/static/morphing-man`
+        path: `${__dirname}/static/morphing-man`,
       },
     },
     {
-      resolve:
-        `gatsby-source-filesystem`,
+      resolve: `gatsby-source-filesystem`,
       options: {
         name: `gymnist`,
-        path: `${__dirname}/static/gymnist`
+        path: `${__dirname}/static/gymnist`,
       },
     },
     `gatsby-plugin-sharp`,
@@ -38,9 +37,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
-        alias: aliases,
-        extensions: [`ts`, `tsx`]
-      }
-    }
+        alias: {
+          '@root': path.resolve(__dirname, '.'),
+          '@src': path.resolve(__dirname, 'src'),
+          '@cmp': path.resolve(__dirname, 'src/components'),
+          '@hooks': path.resolve(__dirname, 'src/hooks'),
+        },
+        extensions: ['ts', 'tsx', 'js'],
+      },
+    },
+    'gatsby-plugin-typescript',
+    'gatsby-plugin-sass',
   ],
 }

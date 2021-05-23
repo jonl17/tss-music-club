@@ -1,28 +1,33 @@
 import React from 'react'
-import Sensor from "~/components/Sensor"
-import { Grid } from "./styled"
-import ImageComponent from "~/components/ImageComponent"
-import { StopMotionComponentProps } from '~/types'
+import Sensor from '@cmp/Sensor'
+import { Grid } from './styled'
+import ImageComponent from '@cmp/ImageComponent'
+import { StopMotionComponentProps } from '@src/types'
 
 // this components creates a stopmotion thingy, you need to feed it images and a context
-const StopMotion: React.FC<StopMotionComponentProps> = ({ stopMotionContext, images, sensorType, imageSize }) => {
+const StopMotion: React.FC<StopMotionComponentProps> = ({
+  images,
+  sensorType,
+  imageSize,
+}) => {
   return (
-
-    <React.Fragment>
-
+    <>
       {/* this is the interaction sensor that controls the stopmotion */}
-      <Sensor stopMotionContext={stopMotionContext} count={images.length} type={sensorType}></Sensor>
+      <Sensor count={images.length} type={sensorType}></Sensor>
 
       <Grid>
-        <div className="center-the-images">
+        <div className='center-the-images'>
           {images.map((image, index) => (
-            <ImageComponent key={index} identifier={index + 1} fluid={image.childImageSharp.fluid} stopMotionContext={stopMotionContext} size={imageSize}></ImageComponent>
+            <ImageComponent
+              key={index}
+              identifier={index + 1}
+              fluid={image.childImageSharp.fluid}
+              size={imageSize}
+            ></ImageComponent>
           ))}
         </div>
       </Grid>
-
-    </React.Fragment>
-
+    </>
   )
 }
 

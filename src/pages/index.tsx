@@ -1,44 +1,48 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react'
+import { graphql } from 'gatsby'
 
-import { StopMotionFullQuery } from "~/types"
+import { StopMotionFullQuery } from '@src/types'
 
-import StopMotion from "~/components/StopMotion"
-import PageWrap from "~/components/FrontpageWrap"
-import FeaturedImageBanner from "~/components/FeaturedImageBanner"
-
-import GymnistProvider, { GymnistContext } from "~/context/StopMotion/Gymnist"
+import StopMotion from '@cmp/StopMotion'
+import PageWrap from '@cmp/FrontpageWrap'
+import FeaturedImageBanner from '@cmp/FeaturedImageBanner'
+import { GymnistProvider } from '@src/context/StopMotion/Gymnist'
 
 const index: React.FC<StopMotionFullQuery> = ({
-  data: { markdownRemark: { frontmatter } }
+  data: {
+    markdownRemark: { frontmatter },
+  },
 }) => {
   return (
     <PageWrap>
-
       <GymnistProvider>
-        <StopMotion images={frontmatter.images} stopMotionContext={GymnistContext} sensorType="xy" imageSize="small"></StopMotion>
+        <StopMotion
+          images={frontmatter.images}
+          sensorType='xy'
+          imageSize='small'
+        ></StopMotion>
       </GymnistProvider>
 
-      <FeaturedImageBanner></FeaturedImageBanner>
-    </PageWrap >
+      <FeaturedImageBanner />
+    </PageWrap>
   )
 }
 
 export const query = graphql`
-{
-  markdownRemark (fileAbsolutePath: {regex: "/gymnist/"}) {
-    frontmatter {
-      title
-      images {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
+  {
+    markdownRemark(fileAbsolutePath: { regex: "/gymnist/" }) {
+      frontmatter {
+        title
+        images {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }
     }
   }
-}
 `
 
 export default index

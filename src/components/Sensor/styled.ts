@@ -1,8 +1,4 @@
-import styled, { css } from "styled-components"
-
-type EiningStyleProps = {
-  background: string;
-}
+import styled, { css } from 'styled-components'
 
 const BasicPanelStyles = css`
   height: 100%;
@@ -34,9 +30,4 @@ export const XYpanel = styled.div`
   ${BasicPanelStyles};
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-`
-export const EiningContainer = styled.div`
-  height: 100%;
-  width: 100%;
-  /* background: ${(props: EiningStyleProps) => props.background}; */
 `

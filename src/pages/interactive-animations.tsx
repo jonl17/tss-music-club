@@ -1,42 +1,49 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react'
+import { graphql } from 'gatsby'
 
-import { StopMotionFullQuery } from "~/types"
+import { StopMotionFullQuery } from '@src/types'
 
-import StopMotion from "~/components/StopMotion"
-import PageWrap from "~/components/FrontpageWrap"
+import StopMotion from '@cmp/StopMotion'
+import PageWrap from '@cmp/FrontpageWrap'
 
-import MorphingManProvider, { MorphingManContext } from "~/context/StopMotion/MorphingMan"
+import MorphingManProvider, {
+  MorphingManContext,
+} from '@src/context/StopMotion/MorphingMan'
 
 const InteractiveAnimations: React.FC<StopMotionFullQuery> = ({
-  data: { markdownRemark: { frontmatter } }
+  data: {
+    markdownRemark: { frontmatter },
+  },
 }) => {
   return (
     <PageWrap>
-
       <MorphingManProvider>
-        <StopMotion images={frontmatter.images} stopMotionContext={MorphingManContext} sensorType="x" imageSize="large"></StopMotion>
+        <StopMotion
+          images={frontmatter.images}
+          stopMotionContext={MorphingManContext}
+          sensorType='x'
+          imageSize='large'
+        ></StopMotion>
       </MorphingManProvider>
-
-    </PageWrap >
+    </PageWrap>
   )
 }
 
 export const query = graphql`
-{
-  markdownRemark (fileAbsolutePath: {regex: "/morphing-man/"}) {
-    frontmatter {
-      title
-      images {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
+  {
+    markdownRemark(fileAbsolutePath: { regex: "/morphing-man/" }) {
+      frontmatter {
+        title
+        images {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }
     }
   }
-}
 `
 
 export default InteractiveAnimations

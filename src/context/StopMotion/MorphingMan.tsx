@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react'
-import { StopMotionContextProps } from "~/types"
+import { StopMotionContextProps } from '@src/types'
 
 export const MorphingManContext = createContext({} as StopMotionContextProps)
 
