@@ -1,6 +1,9 @@
 @import './config/base.scss';
+@import './config/bs-variable-overrides.scss';
 
 @import './components/sensor.scss';
+@import './components/image-component.scss';
+@import './components/stop-motion-reel.scss';
 
 :root {
   --smallMargin: 10px;

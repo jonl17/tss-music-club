@@ -1,6 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
-import { useGymnist } from '@src/context/StopMotion/Gymnist'
+import { useGymnist } from '../..'
 
 export type SensorType = 'xy' | 'x'
 
@@ -20,7 +20,7 @@ const Stika = ({ count, type = 'xy' }: Props) => {
           })}
         >
           {Array.from(Array(count)).map((_, i) => (
-            <div onMouseEnter={() => updateChosenImageId(i + 1)} />
+            <div key={i} onMouseEnter={() => updateChosenImageId(i + 1)} />
           ))}
         </div>
       </div>

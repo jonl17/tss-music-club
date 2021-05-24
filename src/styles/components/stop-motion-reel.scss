@@ -1,12 +1,11 @@
-import styled from "styled-components"
-
-export const Grid = styled.div`
+.stop-motion-reel {
   position: relative;
   display: flex;
   height: 100vh;
   width: 100%;
   pointer-events: none;
-  .center-the-images {
+
+  &__image-stack {
     position: absolute;
     width: 40em;
     height: 40em;
@@ -18,4 +17,4 @@ export const Grid = styled.div`
     justify-content: center;
     align-items: center;
   }
-`
+}

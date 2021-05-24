@@ -13,8 +13,7 @@ export interface StopMotionContextProps {
 
 export interface StopMotionComponentProps {
   images: Image[]
-  sensorType: SensorType
-  imageSize: ImageSize
+  sensorType: 'xy' | 'x'
 }
 
 export interface ImageComponentProps {
