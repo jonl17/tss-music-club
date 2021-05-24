@@ -1,46 +1,55 @@
 import React from 'react'
-import { useStaticQuery, graphql, Link } from "gatsby"
-import Img from "gatsby-image"
+import { useStaticQuery, graphql, Link } from 'gatsby'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
-import { Nav } from "./styled"
-import { Bandcamp, Instagram, Spotify, Youtube } from "@styled-icons/fa-brands"
+import { Nav } from './styled'
+import { Bandcamp, Instagram, Spotify, Youtube } from '@styled-icons/fa-brands'
 
 type Props = {
-  pathname: string;
+  pathname: string
 }
 
-const Header: React.FC<Props> = ({ pathname }) => {
-  const data = useStaticQuery(graphql`
-    {
-      logo: imageSharp(fluid: {originalName: {eq: "logo.png"}}) {
-        fluid {
-          ...GatsbyImageSharpFluid
+const Header: React.FC<Props> = () => {
+  const data: { logo: { gatsbyImageData: IGatsbyImageData } } =
+    useStaticQuery(graphql`
+      {
+        logo: imageSharp(fluid: { originalName: { eq: "logo.png" } }) {
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
-    }
-  `)
+    `)
+
   return (
     <Nav>
-      <div className="logo-wrap">
-        <Link to="/">
-          <Img imgStyle={{ zIndex: "2" }} style={{ height: "100%", width: "250px" }} fluid={data.logo.fluid}></Img>
-        </Link>
-      </div>
-      <div className="btn-wrap">
+      <Link to='/'>
+        <div className='logo'>
+          <GatsbyImage
+            imgStyle={{ width: '100%', height: '100%', objectFit: 'contain' }}
+            alt='logo'
+            image={data.logo.gatsbyImageData}
+          />
+        </div>
+      </Link>
 
-        <a target="_blank" href="https://tssforu.bandcamp.com/">
+      <div className='btn-wrap'>
+        <a target='_blank' href='https://tssforu.bandcamp.com/'>
           <Bandcamp></Bandcamp>
         </a>
-        <a target="_blank" href="https://www.instagram.com/tss_spaceman/">
+        <a target='_blank' href='https://www.instagram.com/tss_spaceman/'>
           <Instagram></Instagram>
         </a>
-        <a target="_blank" href="https://open.spotify.com/artist/75WR8OP1SdDikvZdDqkjse?si=crESKemsRne3bvQvnFL24A">
+        <a
+          target='_blank'
+          href='https://open.spotify.com/artist/75WR8OP1SdDikvZdDqkjse?si=crESKemsRne3bvQvnFL24A'
+        >
           <Spotify></Spotify>
         </a>
-        <a target="_blank" href="https://www.youtube.com/watch?v=hs-S342IIUU&t=39s">
+        <a
+          target='_blank'
+          href='https://www.youtube.com/watch?v=hs-S342IIUU&t=39s'
+        >
           <Youtube></Youtube>
         </a>
-
       </div>
     </Nav>
   )

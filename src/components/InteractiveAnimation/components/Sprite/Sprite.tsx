@@ -1,20 +1,21 @@
 import React from 'react'
-import Img, { FluidObject } from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import cn from 'classnames'
 
 type Props = {
-  fluid: FluidObject
+  image: any
   visible: boolean
 }
 
-const Sprite = ({ fluid, visible }: Props) => {
+const Sprite = ({ image, visible }: Props) => {
+  console.log(image)
   return (
     <div
       className={cn('image-component p-4', {
         'image-component--visible': visible,
       })}
     >
-      <Img fluid={fluid}></Img>
+      <GatsbyImage image={image} alt='sprite' />
     </div>
   )
 }

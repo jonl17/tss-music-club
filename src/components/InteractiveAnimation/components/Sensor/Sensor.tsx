@@ -1,6 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
-import { useGymnist } from '../..'
+import { useStopMotion } from '../..'
 
 export type SensorType = 'xy' | 'x'
 
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Stika = ({ count, type = 'xy' }: Props) => {
-  const { updateChosenImageId } = useGymnist()
+  const { updateChosenImageId } = useStopMotion()
   return (
     <>
       <div className='sensor'>

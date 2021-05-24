@@ -1,4 +1,4 @@
-import { FluidObject } from 'gatsby-image'
+import { IGatsbyImageData } from 'gatsby-plugin-image'
 
 export type ImageSize = 'large' | 'small'
 
@@ -12,26 +12,24 @@ export interface StopMotionContextProps {
 }
 
 export interface StopMotionComponentProps {
-  images: Image[]
+  images: IGatsbyImageData[]
   sensorType: 'xy' | 'x'
 }
 
 export interface ImageComponentProps {
-  fluid: FluidObject
+  image: IGatsbyImageData
   identifier: number
   size: ImageSize
-}
-
-export interface Image {
-  childImageSharp: {
-    fluid: FluidObject
-  }
 }
 
 export interface StopMotionFrontmatter {
   frontmatter: {
     title: string
-    images: Image[]
+    images: {
+      childImageSharp: {
+        gatsbyImageData: IGatsbyImageData
+      }
+    }[]
   }
 }
 

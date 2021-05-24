@@ -1,15 +1,17 @@
-import { Image } from '@src/types'
 import React from 'react'
-import { Sensor, Sprite, useGymnist } from '../..'
+import { Sensor, Sprite, useStopMotion } from '../..'
+import { IGatsbyImageData } from 'gatsby-plugin-image'
 
 export interface StopMotionProps {
-  images: Image[]
+  images: {
+    gatsbyImageData: IGatsbyImageData
+  }[]
   sensorType: 'xy' | 'x'
 }
 
 // this components creates a stopmotion thingy, you need to feed it images and a context
 const StopMotion = ({ images, sensorType }: StopMotionProps) => {
-  const { chosenImageId } = useGymnist()
+  const { chosenImageId } = useStopMotion()
 
   return (
     <>
@@ -21,7 +23,7 @@ const StopMotion = ({ images, sensorType }: StopMotionProps) => {
           {images.map((image, i) => (
             <Sprite
               key={i}
-              fluid={image.childImageSharp.fluid}
+              image={image.gatsbyImageData}
               visible={chosenImageId === i + 1}
             />
           ))}

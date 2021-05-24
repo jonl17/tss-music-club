@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 
 import { StopMotionFullQuery } from '@src/types'
 
-import { StopMotion, GymnistProvider } from '@cmp/InteractiveAnimation'
+import { StopMotion, StopMotionProvider } from '@cmp/InteractiveAnimation'
 import PageWrap from '@cmp/FrontpageWrap'
 import FeaturedImageBanner from '@cmp/FeaturedImageBanner'
 
@@ -14,9 +14,12 @@ const index: React.FC<StopMotionFullQuery> = ({
 }) => {
   return (
     <PageWrap>
-      <GymnistProvider>
-        <StopMotion images={frontmatter.images} sensorType='xy' />
-      </GymnistProvider>
+      <StopMotionProvider>
+        <StopMotion
+          images={frontmatter.images.map(image => image.childImageSharp)}
+          sensorType='xy'
+        />
+      </StopMotionProvider>
 
       <FeaturedImageBanner />
     </PageWrap>
@@ -30,9 +33,7 @@ export const query = graphql`
         title
         images {
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: FULL_WIDTH, backgroundColor: "#ffffff")
           }
         }
       }

@@ -27,6 +27,7 @@ module.exports = {
         path: `${__dirname}/static/gymnist`,
       },
     },
+    'gatsby-plugin-image',
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-transformer-remark`,
