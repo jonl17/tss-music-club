@@ -1,7 +1,5 @@
 import React from 'react'
-import { useStaticQuery, graphql, Link } from 'gatsby'
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
-
+import { Link } from 'gatsby'
 import { Nav } from './styled'
 import { Bandcamp, Instagram, Spotify, Youtube } from '@styled-icons/fa-brands'
 
@@ -10,24 +8,11 @@ type Props = {
 }
 
 const Header: React.FC<Props> = () => {
-  const data: { logo: { gatsbyImageData: IGatsbyImageData } } =
-    useStaticQuery(graphql`
-      {
-        logo: imageSharp(fluid: { originalName: { eq: "logo.png" } }) {
-          gatsbyImageData(layout: FULL_WIDTH)
-        }
-      }
-    `)
-
   return (
     <Nav>
       <Link to='/'>
-        <div className='logo'>
-          <GatsbyImage
-            imgStyle={{ width: '100%', height: '100%', objectFit: 'contain' }}
-            alt='logo'
-            image={data.logo.gatsbyImageData}
-          />
+        <div className='logo p-4'>
+          <h1>TSS</h1>
         </div>
       </Link>
 

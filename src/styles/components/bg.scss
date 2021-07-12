@@ -1,0 +1,7 @@
+$green: rgb(128, 237, 155);
+
+.bg {
+  &-green {
+    background: $green;
+  }
+}

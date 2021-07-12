@@ -25,7 +25,7 @@ const BoogieMan = () => {
   }, [beardLimit])
 
   return (
-    <div className='container reel-with-options'>
+    <div className='reel-with-options bg-green'>
       <div className='d-flex h-100 w-100 justify-content-center align-items-center position-relative'>
         <BoogieManSVG />
       </div>
