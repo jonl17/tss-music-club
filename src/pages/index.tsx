@@ -33,7 +33,11 @@ export const query = graphql`
         title
         images {
           childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH, backgroundColor: "#ffffff")
+            gatsbyImageData(
+              layout: FULL_WIDTH
+              backgroundColor: "#ffffff"
+              placeholder: BLURRED
+            )
           }
         }
       }

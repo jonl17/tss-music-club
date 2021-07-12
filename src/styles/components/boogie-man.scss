@@ -1,0 +1,10 @@
+.boogie-man {
+  &__layer {
+    transition: opacity 0.3s;
+    opacity: 0;
+
+    &--visible {
+      opacity: 1;
+    }
+  }
+}
