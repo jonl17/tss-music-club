@@ -29,7 +29,8 @@ const BoogieMan = () => {
       <div className='d-flex h-100 w-100 justify-content-center align-items-center position-relative'>
         <BoogieManSVG />
       </div>
-      <div className='d-flex justify-content-center'>
+      <div className='d-flex flex-column justify-content-center container col-lg-6'>
+        <h4>move this</h4>
         {layers && (
           <input
             onChange={e => setBeardLimit(e.target.value)}
