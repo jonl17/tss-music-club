@@ -1,48 +1,47 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { BoogieManSVG } from '@cmp/SVGS'
+import { useEffect } from 'react'
+import { useState } from 'react'
 
-import { StopMotionFullQuery } from '@src/types'
+const BoogieMan = () => {
+  const [layers, setLayers] = useState<Element[]>()
+  const [beardLimit, setBeardLimit] = useState('1')
+  useEffect(() => {
+    const result = document.querySelectorAll('.boogieman__layer')
+    setLayers(Array.from(result))
+  }, [])
 
-import { StopMotion, StopMotionProvider } from '@cmp/InteractiveAnimation'
-import PageWrap from '@cmp/FrontpageWrap'
-import FeaturedImageBanner from '@cmp/FeaturedImageBanner'
+  useEffect(() => {
+    if (layers) {
+      layers.forEach(layer => {
+        const no = layer.id.replace('Layer_', '')
+        if (parseInt(no) < parseInt(beardLimit)) {
+          layer.classList.add('boogieman__layer--visible')
+        } else {
+          layer.classList.remove('boogieman__layer--visible')
+        }
+      })
+    }
+  }, [beardLimit])
 
-const index: React.FC<StopMotionFullQuery> = ({
-  data: {
-    markdownRemark: { frontmatter },
-  },
-}) => {
   return (
-    <PageWrap>
-      <StopMotionProvider>
-        <StopMotion
-          images={frontmatter.images.map(image => image.childImageSharp)}
-          sensorType='xy'
-        />
-      </StopMotionProvider>
-
-      <FeaturedImageBanner />
-    </PageWrap>
+    <div className='container reel-with-options'>
+      <div className='d-flex h-100 w-100 justify-content-center align-items-center position-relative'>
+        <BoogieManSVG />
+      </div>
+      <div className='d-flex justify-content-center'>
+        {layers && (
+          <input
+            onChange={e => setBeardLimit(e.target.value)}
+            value={beardLimit}
+            type='range'
+            min='1'
+            max={layers?.length}
+          />
+        )}
+      </div>
+    </div>
   )
 }
 
-export const query = graphql`
-  {
-    markdownRemark(fileAbsolutePath: { regex: "/gymnist/" }) {
-      frontmatter {
-        title
-        images {
-          childImageSharp {
-            gatsbyImageData(
-              layout: FULL_WIDTH
-              backgroundColor: "#ffffff"
-              placeholder: BLURRED
-            )
-          }
-        }
-      }
-    }
-  }
-`
-
-export default index
+export default BoogieMan
