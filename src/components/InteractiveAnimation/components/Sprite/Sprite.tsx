@@ -8,7 +8,6 @@ type Props = {
 }
 
 const Sprite = ({ image, visible }: Props) => {
-  console.log(image)
   return (
     <div
       className={cn('image-component p-4', {

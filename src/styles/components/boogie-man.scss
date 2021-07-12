@@ -1,4 +1,65 @@
-.boogie-man {
+$pipeweed: rgb(65, 47, 25);
+
+@keyframes colorize {
+  0% {
+    fill: black;
+  }
+  25% {
+    fill: yellow;
+  }
+  50% {
+    fill: green;
+  }
+  75% {
+    fill: red;
+  }
+}
+
+@keyframes pipefire {
+  from {
+    fill: $pipeweed;
+  }
+  to {
+    fill: orangered;
+  }
+}
+
+@keyframes pipesmoke {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  85% {
+    opacity: 1;
+  }
+}
+
+.boogieman {
+  height: 100%;
+  width: 100%;
+  max-height: 85%;
+}
+
+.boogieman-eyes {
+  &--left {
+    animation: colorize 0.8s infinite alternate;
+  }
+  &--right {
+    animation: colorize 0.8s infinite alternate-reverse;
+  }
+}
+
+#boogieman-fire {
+  path {
+    z-index: 9;
+    fill: $pipeweed;
+    animation: pipefire 5s forwards infinite alternate;
+  }
+}
+
+.boogieman {
   &__layer {
     transition: opacity 0.3s;
     opacity: 0;
@@ -6,5 +67,29 @@
     &--visible {
       opacity: 1;
     }
+  }
+
+  &__space-eyes {
+    &--left {
+      animation: colorize 1s infinite alternate;
+    }
+    &--right {
+      animation: colorize 1s infinite alternate-reverse;
+    }
+  }
+
+  &__fire {
+    z-index: 9;
+    fill: $pipeweed;
+    animation: pipefire 5s forwards infinite alternate;
+  }
+
+  &__smoke {
+    opacity: 0;
+    animation: pipesmoke 5s infinite;
+  }
+
+  &__pipe {
+    z-index: 9;
   }
 }
