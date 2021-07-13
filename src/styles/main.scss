@@ -10,6 +10,12 @@
 @import './components/bg.scss';
 @import './components/portal.scss';
 
+.link {
+  &--active {
+    font-style: italic;
+  }
+}
+
 :root {
   --smallMargin: 10px;
   --mediumMargin: 50px;
@@ -26,7 +32,6 @@ body {
 a {
   text-decoration: none;
   color: inherit;
-  text-transform: uppercase;
 
   &:hover {
     color: black;

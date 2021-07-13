@@ -10,11 +10,15 @@ type Props = {
 const Header: React.FC<Props> = () => {
   return (
     <Nav>
-      <Link to='/'>
-        <div className='logo p-4'>
-          <h1>TSS</h1>
-        </div>
-      </Link>
+      <div className='p-4 d-flex'>
+        <Link activeClassName='link--active' to='/'>
+          <h1>tss </h1>
+        </Link>
+
+        <Link activeClassName='link--active' to='/the-portal'>
+          <h1 className='ms-4'>the portal </h1>
+        </Link>
+      </div>
 
       <div className='btn-wrap'>
         <a target='_blank' href='https://tssforu.bandcamp.com/'>
