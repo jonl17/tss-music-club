@@ -1,0 +1,171 @@
+@keyframes portal-ring-in {
+  from {
+    opacity: 0;
+    transform: translate3d(-10px, 10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0);
+  }
+}
+@keyframes portal-ring-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.the-portal {
+  height: 100vh;
+  width: 100%;
+
+  &__button {
+    height: 50px;
+    position: absolute;
+    right: $spacer * 5;
+    top: 50%;
+    margin-top: -25px;
+  }
+
+  &__ring {
+    opacity: 0;
+    &--off {
+      opacity: 0;
+    }
+
+    &--animate-in {
+      animation: portal-ring-in 0.2s forwards;
+    }
+  }
+
+  &__light-on-man {
+    opacity: 0;
+
+    transition: opacity 0.2s;
+
+    &--on {
+      opacity: 1;
+    }
+  }
+}
+
+.portal-st0 {
+  stroke: #000000;
+  stroke-miterlimit: 10;
+  stroke-opacity: 0;
+}
+.portal-st1 {
+  fill: none;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+  stroke-opacity: 0;
+}
+.portal-st2 {
+  fill: #ffffff;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+  stroke-opacity: 0;
+}
+.portal-st3 {
+  fill: #f0e9e9;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+  stroke-opacity: 0;
+}
+.portal-st4 {
+  fill: #616161;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+  stroke-opacity: 0;
+}
+.portal-st5 {
+  fill: #292929;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+  stroke-opacity: 0;
+}
+.portal-st6 {
+  fill: #fcf5f5;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+  stroke-opacity: 0;
+}
+.portal-st7 {
+  fill-opacity: 0;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+  stroke-opacity: 0;
+}
+.portal-st8 {
+  fill-opacity: 0;
+}
+.portal-st9 {
+  fill: #f0e9e9;
+}
+.portal-st10 {
+  fill: #636060;
+}
+.portal-st11 {
+  fill: #707070;
+  fill-opacity: 0;
+}
+.portal-st12 {
+  fill: #706f6f;
+}
+.portal-st13 {
+  fill: #edeb68;
+}
+.portal-st14 {
+  fill: #edb468;
+}
+.portal-st15 {
+  fill: #ed6d68;
+}
+.portal-st16 {
+  fill: #ed68ba;
+}
+.portal-st17 {
+  fill: #c568ed;
+}
+.portal-st18 {
+  fill: #6868ed;
+}
+.portal-st19 {
+  fill: #68e9ed;
+}
+.portal-st20 {
+  fill: #68ed76;
+}
+.portal-st21 {
+  fill: #d9ed68;
+}
+.portal-st22 {
+  fill: #e6f0b1;
+}
+.portal-st23 {
+  fill: #f4f7e6;
+}
+.portal-st24 {
+  fill: #fcfcfc;
+}
+.portal-st25 {
+  fill: #919090;
+}
+.portal-st26 {
+  fill: #fcf5f5;
+}
+.portal-st27 {
+  fill: none;
+}
+.portal-st28 {
+  fill: #4f4f4f;
+}
+.portal-st29 {
+  fill: #ffffff;
+}
+.portal-st30 {
+  fill: #454343;
+  fill-opacity: 0;
+}
