@@ -21,12 +21,28 @@
   height: 100vh;
   width: 100%;
 
+  &__signature {
+    position: absolute;
+    bottom: $spacer;
+    text-align: center;
+  }
+
   &__button {
     height: 50px;
     position: absolute;
     right: $spacer * 5;
     top: 50%;
     margin-top: -25px;
+    background: red;
+    font-weight: 600;
+    border-radius: 40px;
+    padding: 5px 10px;
+    color: white;
+
+    @include media-breakpoint-down('md') {
+      bottom: $spacer * 5;
+      top: auto;
+    }
   }
 
   &__ring {

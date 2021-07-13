@@ -30,8 +30,9 @@ const Portal = () => {
         disabled={active}
         onClick={() => activateThePortal()}
       >
-        ACTIVATE
+        DO NOT PRESS THIS BUTTON
       </button>
+      <p className='the-portal__signature'>the portal (2021)</p>
     </div>
   )
 }
