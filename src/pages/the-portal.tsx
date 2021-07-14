@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { PortalSVG } from '@cmp/SVGS'
+import { PortalSVG, PortalButtonSVG } from '@cmp/SVGS'
 
 const Portal = () => {
   const [active, setActive] = useState(false)
@@ -25,13 +25,14 @@ const Portal = () => {
   return (
     <div className='d-flex justify-content-center'>
       <PortalSVG portalActive={active} />
-      <button
+      {/* <button
         className='the-portal__button'
         disabled={active}
         onClick={() => activateThePortal()}
       >
         DO NOT PRESS THIS BUTTON
-      </button>
+      </button> */}
+      <PortalButtonSVG on={active} onClick={() => activateThePortal()} />
       <p className='the-portal__signature'>the portal (2021)</p>
     </div>
   )

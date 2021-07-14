@@ -11,12 +11,12 @@ const Header: React.FC<Props> = () => {
   return (
     <Nav>
       <div className='p-4 d-flex'>
-        <Link activeClassName='link--active' to='/'>
-          <h1>tss </h1>
+        <Link activeClassName='link--active' to='/a-very-long-night'>
+          <h2 className='me-4'>a very long night</h2>
         </Link>
 
         <Link activeClassName='link--active' to='/the-portal'>
-          <h1 className='ms-4'>the portal </h1>
+          <h2 className='ms-4'>the portal </h2>
         </Link>
       </div>
 

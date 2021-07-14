@@ -1,0 +1,23 @@
+.portal-button {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+
+  bottom: 5%;
+  right: 5%;
+
+  &--st0 {
+    fill: #fa0000;
+  }
+  &--st1 {
+    fill: #c90000;
+  }
+
+  &__off-litur {
+    path {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
